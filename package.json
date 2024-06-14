@@ -1,0 +1,19 @@
+{
+  "name": "project-node-js-camera-rentals-app",
+  "version": "1.0.0",
+  "description": "Inventory App for a Camera Rentals Store",
+  "main": "index.js",
+  "scripts": {
+    "create": "node index.js createCamera",
+    "showAll": "node index.js showAllCameras",
+    "isolate": "node index.js isolateCamera",
+    "update": "node index.js updateCamera",
+    "delete": "node index.js deleteCamera"
+  },
+  "keywords": [],
+  "author": "Vianel De La Cruz",
+  "license": "ISC",
+  "dependencies": {
+    "nanoid": "^3.3.7"
+  }
+}
