@@ -2,7 +2,7 @@ const {readJSONFile,writeJSONFile} = require('./src/helpers') //import the file 
 
 const camData = readJSONFile("./data", "data.JSON")
 
-const {addNewCamera, showOneCamera, deleteCamera} = require('./src/controller')
+const {addNewCamera, showOneCamera, deleteCamera, updateCameraInfo} = require('./src/controller')
 
 
 
@@ -41,7 +41,12 @@ const run = () => {
             break
             
         case 'updateCamera':
-                
+
+            const updatedCamInfo = updateCameraInfo(camData,values)
+            
+            if(updatedCamInfo !== null){
+                writeJSONFile("./data", "data.JSON", updatedCamInfo);
+            }
               
             break
         
@@ -52,7 +57,7 @@ const run = () => {
             if(dataAfterDeletion !== null){
                 writeJSONFile("./data", "data.JSON", dataAfterDeletion);
             }
-            
+
             break
 
         

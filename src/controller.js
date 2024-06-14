@@ -43,28 +43,46 @@ const showOneCamera = (data, id) => {
 }
 
 
-// const updateCameraInfo = () => {
-
-// }
-
 
 const deleteCamera = (data, id) => { //data - camera JSON file, id - camera id
     
     const updatedCamList = data.filter(camera => camera.id !== id)
-
-   //if the length of the data is the same then the function wouldn't delete anything and return null
+    
+    //if the length of the data is the same then the function wouldn't delete anything and return null
     if(data.length === updatedCamList.length){
         console.log('Camera id not found.')
         return null
-    }
-
-    return updatedCamList //returns filtered data 
+        }
+        
+        return updatedCamList //returns filtered data 
 }
 
+       
+const updateCameraInfo = (data,updatedValues) => {
+
+    const arrIndex = data.findIndex(camera => camera.id === updatedValues[0])//find the index of the specific id
+
+    // console.log(data[arrIndex])
 
 
+    if(arrIndex === -1){//if the id is not found camera doesn't exist
+        console.log('Camera id not found.')
+        return null
+    } else {
+        data[arrIndex].name = updatedValues[1]
+        data[arrIndex].sensorSize = updatedValues[2]
+        data[arrIndex].price = updatedValues[3]
+        data[arrIndex].experienceLevel = updatedValues[4]
+    }
+    
+    return data
+        
+}
+ 
+        
 module.exports ={
     addNewCamera,
     showOneCamera,
-    deleteCamera
+    deleteCamera,
+    updateCameraInfo
 }
