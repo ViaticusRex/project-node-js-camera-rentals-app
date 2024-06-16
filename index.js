@@ -20,8 +20,6 @@ const run = () => {
                 writeJSONFile("./data", "data.JSON", updatedData)
 
             }
-            // console.log('JSON Data', camData)
-            // console.log('New Data',updatedData) 
 
             break
         case 'showAllCameras': //prints all of the camera data in JSON file

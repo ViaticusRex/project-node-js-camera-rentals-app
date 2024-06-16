@@ -22,5 +22,29 @@
     "price": "155",
     "experienceLevel": "Pro",
     "inStock": true
+  },
+  {
+    "id": "KjXeYm",
+    "name": "Sony A7rIV",
+    "sensorSize": "Full-Frame",
+    "price": "140",
+    "experienceLevel": "Pro",
+    "inStock": true
+  },
+  {
+    "id": "lnGRGv",
+    "name": "Sony A7rIV",
+    "sensorSize": "Full-Frame",
+    "price": "140",
+    "experienceLevel": "Pro",
+    "inStock": true
+  },
+  {
+    "id": "SONYcvlPWi",
+    "name": "Sony A7rIV",
+    "sensorSize": "Full-Frame",
+    "price": "140",
+    "experienceLevel": "Pro",
+    "inStock": true
   }
 ]

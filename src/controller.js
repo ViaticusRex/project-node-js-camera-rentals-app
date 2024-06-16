@@ -16,7 +16,7 @@ const addNewCamera = (data, camInfo) => { // data - input is camera JSON data
         const newData = [...data]
         
         const cameraObj = {
-            "id":nanoid(6),
+            "id":camInfo[0].toUpperCase().slice(0, 3) + nanoid(6), //add first 4 characters from name key capitalzed
             "name": camInfo[0],
             "sensorSize":camInfo[1],
             "price":camInfo[2],
