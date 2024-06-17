@@ -33,3 +33,15 @@
 ### `update`:
 - Required parameters: `id` (MUST know id, view full list of cameras)
 - Usage `npm run update id=<id>`
+
+### `add`:
+- Required parameters: `id` (MUST know id, view full list of cameras)
+- Usage `npm run add`
+
+### `showCart`:
+- Required parameters: none, the command will show all contents in user cart (name && total price).
+-Usage `npm run showAll`
+
+### `clearCart`:
+- Required parameters: none, the command will empty user cart.
+- Usage `npm run clear`

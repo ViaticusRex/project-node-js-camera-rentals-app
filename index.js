@@ -2,7 +2,9 @@ const {readJSONFile,writeJSONFile} = require('./src/helpers') //import the file 
 
 const camData = readJSONFile("./data", "data.JSON")
 
-const {addNewCamera, showOneCamera, deleteCamera, updateCameraInfo} = require('./src/controller')
+const {addNewCamera, showOneCamera, deleteCamera, updateCameraInfo, addCameraToUserCart, showUserCart} = require('./src/controller')
+
+const userCart = readJSONFile("./data", "userCart.JSON")
 
 
 
@@ -22,11 +24,13 @@ const run = () => {
             }
 
             break
+
         case 'showAllCameras': //prints all of the camera data in JSON file
             
             console.log(camData)
 
             break
+
         case 'isolateCamera': //search by id
             
             
@@ -43,19 +47,42 @@ const run = () => {
             const updatedCamInfo = updateCameraInfo(camData,values)
             
             if(updatedCamInfo !== null){
-                writeJSONFile("./data", "data.JSON", updatedCamInfo);
+                writeJSONFile("./data", "data.JSON", updatedCamInfo)
             }
               
             break
         
         case 'deleteCamera':// D in CRUD - deletes a camera from JSON file
             
-            const dataAfterDeletion = deleteCamera(camData, values[0]); //values[0] id of the camera to delete in terminal
+            const dataAfterDeletion = deleteCamera(camData, values[0]) //values[0] id of the camera to delete in terminal
             
             if(dataAfterDeletion !== null){
-                writeJSONFile("./data", "data.JSON", dataAfterDeletion);
+                writeJSONFile("./data", "data.JSON", dataAfterDeletion)
             }
 
+            break
+
+        case 'addToCart':
+                 
+            const newUserCart = addCameraToUserCart(camData, userCart,values)
+            
+            if(newUserCart.length !== userCart.length){ 
+                writeJSONFile("./data", "userCart.JSON", newUserCart)
+
+            }
+                
+            break
+
+        case 'showCart':
+
+            showUserCart(userCart)
+
+            
+            break
+        case 'clearCart':
+
+            writeJSONFile("./data", "userCart.JSON", [])
+                
             break
 
         

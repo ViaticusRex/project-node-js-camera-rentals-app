@@ -1,0 +1,34 @@
+[
+  {
+    "id": "PANA-z9_",
+    "name": "Panasonic LUMIX GH5",
+    "sensorSize": "Micro Four Third",
+    "price": 70,
+    "experienceLevel": "Pro-sumer",
+    "inStock": 10
+  },
+  {
+    "id": "SONY-DHC",
+    "name": "Sony A6500",
+    "sensorSize": "Crop",
+    "price": 50,
+    "experienceLevel": "Pro-sumer",
+    "inStock": 19
+  },
+  {
+    "id": "SONY-CtF",
+    "name": "Sony A7SIII",
+    "sensorSize": "Full-Frame",
+    "price": 155,
+    "experienceLevel": "Pro",
+    "inStock": 5
+  },
+  {
+    "id": "SONY-KjX",
+    "name": "Sony A7rIV",
+    "sensorSize": "Full-Frame",
+    "price": 140,
+    "experienceLevel": "Pro",
+    "inStock": 16
+  }
+]

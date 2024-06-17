@@ -8,7 +8,10 @@
     "showAll": "node index.js showAllCameras",
     "isolate": "node index.js isolateCamera",
     "update": "node index.js updateCamera",
-    "delete": "node index.js deleteCamera"
+    "delete": "node index.js deleteCamera",
+    "add": "node index.js addToCart",
+    "showCart": "node index.js showCart",
+    "clear": "node index.js clearCart"
   },
   "keywords": [],
   "author": "Vianel De La Cruz",

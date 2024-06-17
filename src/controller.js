@@ -7,7 +7,7 @@ const { nanoid } = require("nanoid");
 const addNewCamera = (data, camInfo) => { // data - input is camera JSON data
     //camInfo - an array with 4 elements that will be values of the camera object [name, sensorSize, price, experienceLevel]
     
-    if(camInfo.length !== 4){
+    if(camInfo.length !== 5){
         console.log( "Invalid Value")
         return null
 
@@ -16,12 +16,12 @@ const addNewCamera = (data, camInfo) => { // data - input is camera JSON data
         const newData = [...data]
         
         const cameraObj = {
-            "id":camInfo[0].toUpperCase().slice(0, 3) + nanoid(6), //add first 4 characters from name key capitalzed
+            "id":camInfo[0].toUpperCase().slice(0, 4) + "-" + nanoid(3), //add first 4 characters from name key capitalzed
             "name": camInfo[0],
             "sensorSize":camInfo[1],
-            "price":camInfo[2],
+            "price": Number(camInfo[2]),
             "experienceLevel": camInfo[3],
-            "inStock": true
+            "inStock": Number(camInfo[4])
         };
     
         newData.push(cameraObj);
@@ -79,10 +79,43 @@ const updateCameraInfo = (data,updatedValues) => {
         
 }
  
-        
+// function that will use 'id' and whether or not the item is in stock to populate user cart
+
+
+ // This will hold the items in the cart
+
+const addCameraToUserCart = (data, userCart, id) => {
+    const newUserCart = [...userCart]
+    const cameraInStock = data.find(camera => camera.id === id[0] && camera.inStock > 0);
+    if (!cameraInStock) {
+        console.log('Camera not found or out of stock.')
+    } else {
+        newUserCart.push(cameraInStock)
+        cameraInStock.inStock -= 1
+        console.log(`${cameraInStock.name} added to cart`)
+    }
+        return newUserCart
+}
+
+const showUserCart = (userCart) => {
+    if(userCart.length === 0){
+        console.log('The cart is empty!')
+    } else {
+        let total = 0
+        userCart.forEach(camera => {
+            total += camera.price
+            console.log(camera.name, camera.price)
+        })
+        console.log('total',total)
+    }
+}
+
+
 module.exports ={
     addNewCamera,
     showOneCamera,
     deleteCamera,
-    updateCameraInfo
+    updateCameraInfo,
+    addCameraToUserCart,
+    showUserCart
 }
